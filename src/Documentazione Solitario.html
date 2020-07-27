@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+    <script src="https://kit.fontawesome.com/8dc4de7596.js" crossorigin="anonymous"></script>
+    <title>Documentazione Solitario</title>
+</head>
+<body id="body" class="bg-light">
+  <div class="container">
+    <div class="row m-auto">
+        <article class="col-12 d-flex justify-content-center mb-5">
+            <div> 
+              <h1 class="text-center">DOCUMENTAZIONE SOLITARIO</h1>
+              <h3 class="text-center">Corallo, Di Bella, Eremita</h3>
+            </div>
+        </article>
+    </div>
+
+    <div class="row">
+      <section class="col-12 col-md-6 d-flex flex-column order-1">
+        <h2 class="">Class Card</h2>          
+          <ul class="list-unstyled ">
+            <li><a href="#card">Card(Seed seed,Value value, int realCardValue, Color color)</a></li>
+            <li><a href="#getValues">Value getValues()</a></li>
+            <li><a href="#getRealCardValue()">int getRealCardValue()</a></li>
+            <li><a href="#getColor()">Color getColor()</a></li>
+            <li><a href="#getHidden">boolean getHidden()</a></li>
+            <li><a href="#setHidden">setHidden(boolean hidden)</a></li>
+            <li><a href="#CardtoString">String toString()</a></li>
+          </ul>           
+      </section>
+      <section class="col-12 col-md-6 d-flex flex-column order-0">
+        <h2 class="">Class Game</h2>            
+          <ul class="list-unstyled  ">
+            <li><a href="#Game">Game()</a></li>
+            <li><a href="#startGame">void startGame()</a></li>
+            <li><a href="#showCard">String showCard()</a></li>
+            <li><a href="#pickCard">void pickCard()</a></li>
+            <li><a href="#canMoveCard">boolean canMoveCard(Card c, int destRow, int destCol)</a></li>
+            <li><a href="#moveCardFromDeck">void moveCardFromDeck(int destRow, int destCol)</a></li>
+            <li><a href="#moveCards">void moveCards(int startRow, int startCol, int destRow, int destCol)</a></li>
+            <li><a href="#whichRow">int whichRow(int destCol)</a></li>
+            <li><a href="#canMoveToFinalGrid">boolean canMoveToFinalGrid(Card c, int destCol)</a></li>
+            <li><a href="#moveFromDeckToFinalGrid">void moveFromDeckToFinalGrid(int destCol)</a></li>
+            <li><a href="#moveCardToFinalGrid">void moveCardToFinalGrid(int startRow, int startCol, int destCol)</a></li>
+            <li><a href="#win">boolean win()</a></li>
+            <li><a href="#toString">String toString()</a></li>
+          </ul>           
+      </section>
+      <section class="col-12 col-md-6 d-flex flex-column order-2">
+        <h2 class="">Class Deck</h2>            
+          <ul class="list-unstyled  ">
+            <li><a href="#Deck">public Deck()</a></li>
+           	<li><a href="#createDeck">void createDeck()</a></li>
+            <li><a href="#getDeck">LinkedList getDeck()</a></li>
+          </ul>           
+      </section>
+      <section class="col-12 col-md-6 d-flex flex-column  order-2">
+        <h2 class="">Class Main</h2>            
+          <ul class="list-unstyled">
+            <li><a href="#trycatch">try - catch</a></li>
+            <li><a href="#dowhile">do - while</a></li>
+            <li><a href="#case1">case 1:</a></li>
+            <li><a href="#case2">case 2:</a></li>
+            <li><a href="#case3">case 3:</a></li>
+            <li><a href="#case4">case 4:</a></li>
+            <li><a href="#case5">case 5:</a></li>
+            <li><a href="#case6">case 6:</a></li>
+          </ul>           
+      </section>
+    </div>
+    <div class="row mt-5">
+
+    	<table id="createDeck" class="table table-light col-12 mb-5 border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void createDeck()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Genera un mazzo di carte francesi.
+              Tramite due foreach che ciclano gli enum della classe Card: "seeds" e "values", si ottengono valore e seme della carta, il colore verrà scelto in base al seme (Quadri e Cuori avranno come colore il rosso) mentre realValue da il "peso" alla carta, esso si resetta ad ogni cambio seme e si incremeta ad ogni ciclo.
+            Verrà creata una carta con tutte le caratteristiche ottenute dai cicli e infine la si aggiungerà al mazzo tramite il metodo "push"</td>
+          </tr>
+        </tbody>
+        <tr>
+            <td>            
+              Parameters:<br>
+              Card c = new Card(seed, value, realValue, color)
+            </td>
+          </tr>
+       </table>
+      
+      <table id="getDeck" class="table table-light col-12 mb-5 border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>LinkedList getDeck()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ritorna il mazzo generato all'interno di una LinkedList</td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="Deck" class="table table-light col-12 mb-5 border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>public Deck()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Costruttore della classe Deck(): crea una LinkedList e invoca il metodo createDeck()
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche: <br>
+              <a href="#createDeck">createDeck()</a> <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table id="Game" class="table table-light col-12 mb-5  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>public Game()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Costruttore della classe Game(): genera il mazzo principale "gameDeck" che prenderà le carte dal metodo getDeck, il mazzo ausiliario "auxDeck" e le due griglie di gioco "gameField" e "finalDecks".
+              Ogni qual volta viene invocato, genera un mazzo, lo mischia tramite Collection.shuffle e inizializza la griglia di gioco tramite il metodo "startGame()".
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche: <br>
+              <a href="#startGame">startGame()</a> <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <table id="showCard" class="table table-light col-12 mb-5  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>String showCard()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Se il mazzo ausiliario non è vuoto, ritorna una stringa contenente l'ultima carta dello Stack "auxDeck", tramite il metodo "peek"</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="pickCard" class="table table-light col-12 mb-5 border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void pickCard()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Estrae (pop) una carta dal mazzo principale  e la inserisce (push) nel mazzo ausiliario, scoprendola (c.setHidden(false)).
+              Se il mazzo principale è vuoto, tramite un iteratore verranno prese tutte le carte del mazzo ausiliario e saranno inserite (addLast) nuovamente nel gameDeck.
+              Successivamente il mazzo ausiliario verrà svuotato (auxDeck.clear)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche: <br>
+              <a href="#setHidden">setHidden()</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="startGame" class="table table-light col-12 mb-5  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void startGame()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Inizializza la griglia di gioco "gameField" tramite un doppio ciclo:<br>
+              per generare l'effetto "scala" le colonne "j" seguiranno il valore delle righe "i". la prima carta di ogni ciclo ( j == i ) sarà scoperta.
+              Le carte inserite all'interno della griglia saranno estratte dal gameDeck.
+            </td>
+          </tr>
+          <td>
+            Vedi anche:<br>
+            <a href="#setHidden">void setHidden(boolean hidden)</a><br>
+          </td>
+        </tbody>
+      </table>
+  
+      <table id="canMoveCard" class="table table-light col-12 mb-5  border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>boolean canMoveCard(Card c, int destRow, int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Metodo di controllo delle mosse nel gameField:<br>
+              inizialmente controlla che la carta non sia nulla, esclude i possibili "outOfBounds"<br>
+              poi controlla due condizioni: se siamo nnella riga 0 si può inserire solo un K se non siamo nella riga 0 dovremmo assicurarci che la carta selezionata esista realmente, che la posizione precedente sia occupata da una carta, con colore diverso,
+              valore maggiore di 1 e che la posizione scelta sia libera
+            </td>
+          </tr>
+          <td>            
+            Parameters:<br>
+            (Card c, int destRow, int destCol)
+          </td>
+          <tr>
+            <td>            
+              Returns:<br>
+              true se la mossa è possibile, altrimenti false
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveCardFromDeck">moveCardFromDeck(int destRow, int destCol)</a><br>
+              <a href="#moveCards">moveCards(int startRow, int startCol, int destRow, int destCol)</a><br>
+              <a href="#setHidden">setHidden()</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="moveCardFromDeck" class="table table-light col-12 mb-5  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void moveCardFromDeck(int destRow, int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Se il mazzo ausiliario non è vuoto e canMoveCard restituisce true, allora sposta l'ultima carta nella posizione scelta della griglia di gioco.
+            </td>
+          </tr>
+          <td>            
+            Parameters:<br>
+            (Card c, int destRow, int destCol)
+          </td>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#canMoveCard">canMoveCard(Card c, int destRow, int destCol)</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <table id="moveCards" class="table table-light col-12 mb-5  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void moveCards(int startRow, int startCol, int destRow, int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Sposta una o più carte(ordinate) all'interno della stessa griglia di gioco "gameField":<br>
+              Inserite le coordinate di partenza e di arrivo, ci sarà un primo controllo delle coordinate di partenza (quelle di arrivo sono validate da canMoveCard()) 
+              e se canMoveCard restituisce True, tramite un do - while che ad ogni ciclo incrementerà riga di partenza e di arrivo finchè non trova una posizione vuota (while (this.gameField[startRow][startCol] != null)),
+              le carte verranno spostate nella nuova posizione. Se non siamo nella riga 0, scopri la carta precedente.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Parameters:<br>
+              (int startRow, int startCol, int destRow, int destCol)
+          </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#canMoveCard">canMoveCard(Card c, int destRow, int destCol)</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <table id="whichRow" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>int whichRow(int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Questo metodo serve a generare la riga esatta dove mettere le carte nella griglia finale "finalDecks".<br>
+              Se per spostare le carte nel gameField si inseriscono entrambe le coordinate, qui scegliamo solo la colonna, che dopo un controllo sulla validità dell'input
+              cicla tutte le righe finchè non ne trova una libera.<br>
+              La funzione ci restituirà l'indice della riga.
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Parameters:<br>
+              destCol
+            </td>
+            <tr>
+              <td>            
+                Returns:<br>
+              destRow
+              </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+              <a href="#moveFromDeckToFinalGrid">moveFromDeckToFinalGrid(int destCol)</a><br>
+              <a href="#moveCardToFinalGrid">moveCardToFinalGrid(int startRow, int startCol, int destCol)</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="canMoveToFinalGrid" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>boolean canMoveToFinalDecks(Card c, int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Metodo di controllo delle mosse nel finalDecks:<br>
+              inizialmente controlla che la carta non sia nulla, esclude i possibili "outOfBounds"<br>
+              Riceve il valore della riga da whichRow()
+              Se siamo nella riga 0 controlla che la carta sia un asso se non siamo nella riga 0 ci assicuriamo che la posizione di destinazione sia vuota, che la posizione precedente sia occupata da una carta, con colore e seme uguale,
+              e che la carta selezionata sia uguale alla carta precedente nel finalDecks più 1.
+             
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Returns:<br>
+              True se la mossa è valida altrimenti false
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Parameters:<br>
+              (Card c, int destCol)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveFromDeckToFinalGrid">moveFromDeckToFinalGrid(int destCol)</a><br>
+              <a href="#moveCardToFinalGrid">moveCardToFinalGrid(int startRow, int startCol, int destCol)</a><br>
+              <a href="#whichRow">whichRow(int destCol)</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="moveFromDeckToFinalGrid" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void moveFromDeckToFinalDecks(int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Prima controlla che auxDeck non sia vuoto e che la mossa sia accettata da canMoveToFinalDecks(),<br>
+              Successivamente toglie l'ultima carta del mazzo ausiliario e la sposta nella griglia finale, trovando la riga tramite whichRow().
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Parameters:<br>
+              (int destCol)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+              <a href="#whichRow">whichRow(int destCol)</a><br>            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="moveCardToFinalGrid" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void moveCardToFinalDecks(int startRow, int startCol, int destCol)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Sposta le carte dal "gameField" al "finalGrid":<br>
+              Prima controlla le coordinate di partenza assicurandosi di non andare outOfBounds in gameField, che nella posizione successiva non ci siano carte e delega il resto dei controlli a canMoveToFinalGrid().<br>
+              Se il metodo restituisce true, controlla che non siamo nella prima riga ed eventualmente scopre la carta di prima, trova la riga di finalGrid tramite whichRow(), sposta la carta dal "gameField" e quindi imposta a null la sua vecchia posizione.
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Parameters:<br>
+              (int startRow, int startCol, int destCol)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+              <a href="#whichRow">whichRow(int destCol)</a>
+              <a href="#setHidden">setHidden(boolean hidden)</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="win" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>boolean win()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Controlla l'ultima riga di finalGrid.<br>
+              Se tutte le posizioni sono occupate restituisce false.<br>
+              Questo metodo mantiene attiva la partita, poichè finchè restituirà true il do-while del main sarà eseguito.
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Returns:<br>
+              false se la partita è finita, true se siamo ancora in gioco
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#dowhile">do - while</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="toString" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>String toString()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Stampa le griglie, gameField e finalGrid e infine aggiunge lo showCard().
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="card" class="table table-light col-12  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>public Card(Seed seed,Value value, int realCardValue, Color color)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Costruttore della classe Card
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Parameters:<br>
+              (Seed seed, Value value, int realCardValue, Color color)
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    
+      <table id="getValues" class="table table-light col-12 mb-5  border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>Value getValues()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ritorna uno dei valori inseriti nell'enum "values"
+            </td>
+          </tr>
+        
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#CardtoString">toString() class Card </a><br>
+              <a href="#createDeck">createDeck()</a><br>
+              <a href="#canMoveCard">canMoveCard(Card c, int destRow, int destCol)</a><br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="getRealCardValue()" class="table table-light col-12 mb-5  border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>int getRealCardValue()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ritorna il valore numerico intero compreso tra 1 e 13
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#CardtoString">toString() class Card </a><br>
+              <a href="#createDeck">createDeck()</a><br>
+              <a href="#canMoveCard">canMoveCard(Card c, int destRow, int destCol)</a><br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="getColor()" class="table table-light col-12 mb-5 border  border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>Color getColor()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ritorna uno dei valori inseriti nell'enum "color"
+            </td>
+          </tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#CardtoString">toString() class Card </a><br>
+              <a href="#createDeck">createDeck()</a><br>
+              <a href="#canMoveCard">canMoveCard(Card c, int destRow, int destCol)</a><br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="getHidden" class="table table-light col-12 mb-5  border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>boolean getHidden()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Impostato true di default<br>
+              Ritorna true se la carta è coperta.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#CardtoString">toString() class Card </a><br>
+              <a href="#canMoveCard">canMoveCard(Card c, int destRow, int destCol)</a><br>
+              <a href="#canMoveToFinalGrid">canMoveToFinalGrid(Card c, int destCol)</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table id="setHidden" class="table table-light col-12 mb-5  border border-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th>void setHidden(boolean hidden)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Modifica il valore booleano hidden
+            </td>
+          </tr>
+          <tr>
+            <td>            
+              Parameters:<br>
+              (boolean hidden)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveCards">moveCards(int startRow, int startCol, int destRow, int destCol)</a><br>
+              <a href="#moveCardToFinalGrid">moveCardToFinalGrid(int startRow, int startCol, int destCol)</a><br>
+              <a href="#pickCard">pickCard() </a><br>
+              <a href="#startGame">startGame()</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border " id="CardtoString">
+        <thead class="thead-dark">
+          <tr>
+            <th>String toString() class Card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Il toString della Card, tramite una serie di if annidati, restituirà sempre una stringa colorata delle stesse dimensioni, ma se la card sarà coperta non ne mostrerà i valori.
+            </td>
+          </tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#toString">toString()</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border  " id="trycatch">
+        <thead class="thead-dark">
+          <tr>
+            <th>try - catch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              controlla se i dati inseriti dall'utente siano validi, lanciando InputMismatchException nel caso non si inseriscano valori numerici interi<br>
+              imput.next() all'interno del catch ripulisce il buffer.
+          </td>
+        </tbody>
+      </table>
+      <table class="table table-light col-12 mb-5 border-dark  border" id="dowhile">
+        <thead class="thead-dark">
+          <tr>
+            <th>do - while</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ripete il menù e lo switch-case finchè siamo ancora in gioco
+          </td>
+          </tr>
+            <td>            
+              Vedi anche:<br>
+              <a href="#win">win()</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border" id="case1">
+        <thead class="thead-dark">
+          <tr>
+            <th>case 1:</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Pesca e mostra l'ultima carta
+          </td>
+        </tr>
+        <td>
+          Vedi anche:<br>
+          <a href="#pickCard">pickCard()</a><br>
+          <a href="#showCard">showCard()</a><br>
+        </td>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border " id="case2">
+        <thead class="thead-dark">
+          <tr>
+            <th>case 2:</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Sposta una carta dal mazzo alla griglia.
+          </td>
+        </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveCardFromDeck">moveCardFromDeck()</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border " id="case3">
+        <thead class="thead-dark">
+          <tr>
+            <th>case 3:</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Sposta le carte all'interno della griglia.
+          </td>
+        </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveCards">moveCards()</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <table class="table table-light col-12 mb-5 border-dark  border " id="case4">
+        <thead class="thead-dark">
+          <tr>
+            <th> case 4:</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Sposta una carta dal mazzo alla griglia finale.
+          </td>
+        </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveCardToFinalGrid">moveCardToFinalDecks()</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border " id="case5">
+        <thead class="thead-dark">
+          <tr>
+            <th> case 5:</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Sposta una carta dalla griglia di gioco alla griglia finale.
+          </td>
+        </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#moveFromDeckToFinalGrid">moveFromDeckToFinalDecks()</a><br>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <table class="table table-light col-12 mb-5 border-dark  border " id="case6">
+        <thead class="thead-dark">
+          <tr>
+            <th> case 6:</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Crea una nuova partita.
+          </td>
+        </tr>
+          <tr>
+            <td>
+              Vedi anche:<br>
+              <a href="#Game">Game()</a><br>
+          </td>
+        </tbody>
+      </table>
+
+      <table class="table table-light col-12 mb-5 border-dark  border " id="case7">
+        <thead class="thead-dark">
+        <tr>
+          <th> case 7:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Chiude il programma tramite System.exit().
+          </td>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <a href="#body"><button class="btn btn-dark fixed-bottom ml-5 mb-5"><i class="fas fa-chevron-up"></i></button></a>
+</body>
+
+</html>
